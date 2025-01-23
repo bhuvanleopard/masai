@@ -6,3 +6,4 @@ let greetUser = function(){
     return `Hello, Guest!.`
   }
 }
+console.log(greetUser())
