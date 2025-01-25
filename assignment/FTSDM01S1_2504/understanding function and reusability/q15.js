@@ -1,44 +1,46 @@
-function generatePassword(length=4, includeNumbers=true, includeSpecialChars=false){
-  let char="abcdefghijklmnopqrstuvwxyz"
-  let sym="#$%@#@%$@#"
-  if(includeSpecialChars){
-    char+=sym;
-  }
-  
-  let count=0;
-  let array="";
-  while(count<length){
-    let temp= Math.random()*10;
-    let temp2= Math.random()*10;
-    let res=Math.floor(temp*temp2);
+function generatePassword(length, numbers=true, chars=false){
 
-    char[res]==undefined ? includeNumbers ? array+=res%10: 
-                            array+= char[(res%10)]:
-    array+= char[res];
-    
-    
-    count++;
-    
-  }
   
-  if(includeNumbers){
-    let temp4=Math.random()*10;
-    temp4=Math.floor(temp4);
-    array[length-1]=temp4
-  }
+  let txt='abcdefghijklmnopqrstuvwxyz'
+  let char='!@#$%^&*()'
+  let nums="1234567890"
+  let cap="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   
-  if(includeSpecialChars){
-    let temp3=Math.random()*10;
-    temp3=Math.floor(temp3);
-    array[length-2]=sym[temp3]
-  }
-  
-  
-  return array
 
+  let store=""
+  
+  function log(placeholder){
+    let temp= Math.floor((Math.random()*10**length)/2)
+    temp=temp%100;
+    placeholder[temp]==undefined?
+      store+=placeholder[temp%10]: store+=placeholder[temp]
+    
+    
+  }
+  
+  
+  for(let i=0; i<length; i++){
+    
+    
+    
+    let a= numbers? Math.floor(Math.random()*100):0;
+    let b= chars? Math.floor(Math.random()*100):0;
+    let c= Math.floor(Math.random()*100);
+    let d= Math.floor(Math.random()*100);
+    
+
+    if(a>b && a>c && a>d){log(nums)}
+    else if(b>c && b>d){log(char)}
+    else if(c>d){log(cap)}
+    else{log(txt)}
+  }
+  
+  
+
+  
+  
+  return store
   
 }
-
-
 
 console.log(generatePassword(8,true,true))
