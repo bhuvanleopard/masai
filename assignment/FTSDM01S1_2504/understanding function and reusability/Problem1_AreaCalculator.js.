@@ -1,1 +1,9 @@
-
+function triangleArea(base, height){
+  if (base<0 || height<0){
+    return `Invalid number, base and height must be a positive numbers`
+  }else {
+  let area=base*height/2;
+  area=area.toFixed(2);
+  return `The area of triangle is ${area}`
+  }
+}
