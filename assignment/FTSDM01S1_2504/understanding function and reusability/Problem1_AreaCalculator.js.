@@ -7,3 +7,10 @@ function triangleArea(base, height){
   return `The area of triangle is ${area}`
   }
 }
+
+/**
+line.no2: the if...else condition is to vaidate for a positive input
+line.no5: the area of triangle is calculated and assigned to "area" variable
+line.no6: "toFixed" function used to get area upto 2 decimal place
+line.no7: outputs the area;
+**/
