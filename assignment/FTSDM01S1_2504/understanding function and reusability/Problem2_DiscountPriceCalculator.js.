@@ -12,6 +12,17 @@ function discountPrice(price){
   }
 }
 
+/**
+LOGIC
+
+line no.2: checks for valid input
+line no.3: outputs invalid input
+line no.5: checks for price greater than 20
+line no.6: discount is applied
+line no.8: outputs the discount price
+line no.10: outputs the price if lesser or equal to 20
+**/
+
 console.log(discountPrice(25))
 console.log(discountPrice(20))
 console.log(discountPrice(15))
