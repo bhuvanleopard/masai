@@ -1,1 +1,17 @@
+function discountPrice(price){
+  if(price*1==NaN || price<=0){
+    return `${price} is invalid input, the price must be a non-negative number`
+  }else{
+    if(price>20){
+      let disPrice = (price/100)*90;
+      disPrice=disPrice.toFixed(2);
+      return `The final price is ${disPrice}`;
+    }else{
+      return `The final price is ${price}`
+    }
+  }
+}
 
+console.log(discountPrice(25))
+console.log(discountPrice(20))
+console.log(discountPrice(15))
