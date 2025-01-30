@@ -1,0 +1,5 @@
+EXCERCISE1:
+binary:2
+octal:8
+hexadecimal:16
+ASCII: american standard code for information interchang
