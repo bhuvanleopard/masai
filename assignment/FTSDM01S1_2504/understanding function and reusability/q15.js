@@ -1,46 +1,65 @@
-function generatePassword(length, numbers=true, chars=false){
 
+function genPassword(length=3, incNum=true, incChar=false){
+  let num='0123456789', lowCase="abcdefghijklmnopqrstuvwxyz", upCase="ABCDEFGHIJKMLNOPQRSTUVWXYZ", char="!@#$%^&*()";
+  let str=[], quotient=Math.floor(length/3), remainder=length%3
   
-  let txt='abcdefghijklmnopqrstuvwxyz'
-  let char='!@#$%^&*()'
-  let nums="1234567890"
-  let cap="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  function generator(type, count){
+    // let str=""
+    for(let i=0; i<count; i++){
+      let temp=Math.floor(Math.random()*100)
+      type[temp] == undefined ?
+        str.push(type[temp%10])
+        : str.push(type[temp])
+    }
+    //return str;
+  }
   
-
-  let store=""
+  generator(num, quotient)
+  generator(char, quotient)
+  generator(upCase, quotient)
+  generator(lowCase, remainder)
   
-  function log(placeholder){
-    let temp= Math.floor((Math.random()*10**length)/2)
-    temp=temp%100;
-    placeholder[temp]==undefined?
-      store+=placeholder[temp%10]: store+=placeholder[temp]
-    
-    
+  let popCount=0;
+  
+  //console.log(str)
+  
+  if(!incNum){
+    let replace=generator(lowCase, quotient);
+    for(let i2=0; i2<quotient; i2++){
+      str[i2]=str[length-1+i2]
+      popCount++;
+    }
+  }
+  
+  if(!incChar){
+    let replace=generator(lowCase, quotient);
+    for(let i2=quotient; i2<quotient*2; i2++){
+      str[i2]=str[length-1+i2];
+      popCount++;
+    }
+  }
+  
+  // console.log(str)
+  for(let i3=0; i3<popCount; i3++){
+    str.pop()
   }
   
   
   for(let i=0; i<length; i++){
-    
-    
-    
-    let a= numbers? Math.floor(Math.random()*100):0;
-    let b= chars? Math.floor(Math.random()*100):0;
-    let c= Math.floor(Math.random()*100);
-    let d= Math.floor(Math.random()*100);
-    
-
-    if(a>b && a>c && a>d){log(nums)}
-    else if(b>c && b>d){log(char)}
-    else if(c>d){log(cap)}
-    else{log(txt)}
+    let ran=Math.floor(Math.random()*10);
+    if(ran < length){
+      temp=str[i];
+      str[i]=str[ran];
+      str[ran]=temp
+    }
   }
   
+  let password="";
+  for(let i4=0; i4<length; i4++){
+    password+=str[i4]
+  }
   
-
-  
-  
-  return store
-  
+  return password
 }
 
-console.log(generatePassword(8,true,true))
+console.log(genPassword())
