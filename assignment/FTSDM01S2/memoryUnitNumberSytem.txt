@@ -1,5 +1,29 @@
-EXCERCISE1:
+#EXCERCISE 1:
 binary:2
 octal:8
 hexadecimal:16
-ASCII: american standard code for information interchang
+ASCII: american standard code for information interchange.
+
+#EXCERCISE 2:
+1002
+144
+[]
+[]
+202
+87
+
+#EXCERCISE 3:
+110110
+1111000
+114
+1571
+315
+6C
+
+#EXERCISE 4:
+101
+3568
+301
+
+#EXERCISE 5:
+
