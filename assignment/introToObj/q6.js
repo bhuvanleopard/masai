@@ -22,7 +22,6 @@ let obj={
       obj[key].role != 'user' ? obj[key].role !='admin' ? res = "Access Denied"
                                                                                 :null
                                                         :null;
-      
       console.log(res)
       
     }
