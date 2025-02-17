@@ -1,5 +1,5 @@
 
-let setInterval1= setInterval(()=>console.log("hi"), 100)
+let setInterval1= setInterval(()=>console.log("loading..."), 1000)
 
-setTimeout(()=>clearInterval(setInterval1),1000);
+setTimeout(()=>clearInterval(setInterval1),5000);
 
